@@ -6,9 +6,9 @@ trap 'echo -e "\nInstallation cancelled by user!"; exit 130' INT
 
 # packages
 packages=(
-    # fastfetch
-    # ttf-nerd-fonts-symbols
-    # git
+    fastfetch
+    ttf-nerd-fonts-symbols
+    git
     ttf-jetbrains-mono
 )
 # Script Route
