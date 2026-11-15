@@ -6,9 +6,10 @@ trap 'echo -e "\nInstallation cancelled by user!"; exit 130' INT
 
 # packages
 packages=(
-    fastfetch
-    ttf-nerd-fonts-symbols
-    git
+    # fastfetch
+    # ttf-nerd-fonts-symbols
+    # git
+    # fish
     ttf-jetbrains-mono
 )
 # Script Route
@@ -93,4 +94,34 @@ if [[ "$(gsettings get org.gnome.desktop.interface accent-color)" == "'purple'" 
 else
     gsettings set org.gnome.desktop.interface accent-color 'purple'
     echo "Purple accent color applied!"
+fi
+
+####### Setup Fish Shell #######
+
+if [[ "$SHELL" == "$(command -v fish)" ]]; then
+    echo "Fish is already the default shell. Skipping..."
+else
+    chsh -s "$(command -v fish)"
+    echo "Fish set as default shell!"
+fi
+
+####### Install Oh My Fish #######
+
+if fish -c "type -q omf"; then
+    echo "Oh My Fish is already installed. Skipping..."
+else
+    echo "Installing Oh My Fish..."
+    curl -fsSL https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+    echo "Oh My Fish installed!"
+fi
+
+####### Setup Oh My Fish Theme #######
+
+OMF_THEME_FILE="$HOME/.config/omf/theme"
+
+if [[ -f "$OMF_THEME_FILE" ]] && [[ "$(cat "$OMF_THEME_FILE")" == "krisleech" ]]; then
+    echo "Krisleech theme is already active. Skipping..."
+else
+    fish -c "omf install krisleech && omf theme krisleech"
+    echo "Krisleech theme activated!"
 fi
