@@ -12,11 +12,12 @@ A minimal GNOME customization setup for **Arch Linux and its derivatives**.
 - 🐟 **Fish Shell** – Installs Fish and sets it as the default shell.
 - 🐚 **Oh My Fish** – Installs and configures the Oh My Fish framework.
 - 🎨 **Krisleech Theme** – Installs and activates the Krisleech theme for Oh My Fish.
+- 📌 **Dash to Panel** – Installs Dash to Panel and applies custom panel settings.
 
 
 ### 📦 Requirements
 
-- Arch Linux or an Arch-based distribution.
+- Arch Linux and Arch-based distributions.
 - GNOME Desktop Environment.
 - KGX Terminal.
 - Internet connection.
@@ -36,7 +37,7 @@ chmod +x install.sh
 - Currently supports Arch Linux and its derivatives only.
 - GTK4 customization only changes application window controls.
 - Designed for GNOME and KGX Terminal.
-- Existing configuration files may be overwritten.
+- Existing configuration files and GNOME settings may be overwritten.
 
 ---
 
