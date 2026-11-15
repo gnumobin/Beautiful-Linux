@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+trap 'echo -e "\nInstallation cancelled by user!"; exit 130' INT
 
 ####### Variables ####### 
 
