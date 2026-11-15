@@ -5,15 +5,18 @@ A minimal GNOME customization setup for **Arch Linux and its derivatives**.
 ### ✨ Features
 
 - 🚦 **GTK4 Traffic Lights** – macOS-inspired close, minimize, and maximize buttons.
-- 🧚 **Custom Fastfetch** – Heavily customized layout featuring pink Frieren ASCII art and colorful Nerd Font icons.
-- 💜 **Reversal Purple** – Automatically installs and applies the Reversal Purple icon theme, skipping installation if already present.
+- 🧚 **Custom Fastfetch** – Customized layout featuring pink Frieren ASCII art and colorful Nerd Font icons.
+- 💜 **Reversal Purple** – Installs and applies the Reversal Purple icon theme.
 - 🔤 **JetBrains Mono** – Configures KGX Terminal with JetBrains Mono at size 11.
-- 🎨 **Purple Accent Color** – Automatically sets GNOME's accent color to purple.
+- 🎨 **Purple Accent Color** – Sets GNOME's accent color to purple.
+- 🐟 **Fish Shell** – Installs Fish and sets it as the default shell.
+- 🐚 **Oh My Fish** – Installs and configures the Oh My Fish framework.
+- 🎨 **Krisleech Theme** – Installs and activates the Krisleech theme for Oh My Fish.
 
 
 ### 📦 Requirements
 
-- Arch Linux or Arch-based distributions.
+- Arch Linux or an Arch-based distribution.
 - GNOME Desktop Environment.
 - KGX Terminal.
 - Internet connection.
