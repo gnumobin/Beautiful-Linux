@@ -51,34 +51,46 @@ cp -r "$GTK4_THEME_SOURCE_DIR/." "$GTK4_THEME_CONFIG_DIR"
 echo "GTK4 Theme installed!"
 
 
-if [[ "$(gsettings get org.gnome.desktop.interface icon-theme)" == "'$REVERSAL_THEME_NAME'" ]]; then
-    echo "Reversal Purple is already active. Skipping..."
+####### Install Reversal Icon Theme #######
+
+echo "Checking Reversal Icon Theme..."
+
+ICON_THEME_DIR="$HOME/.local/share/icons/$REVERSAL_THEME_NAME"
+
+if [[ -d "$ICON_THEME_DIR" ]]; then
+    echo "Reversal Purple is already installed."
 else
     echo "Installing Reversal Icon Theme..."
-    # Download and installation commands
-    ####### Install Reversal Icon Theme #######
 
-    echo "Installing Reversal Icon Theme..."
-
-    # Create temporary directory
     REVERSAL_TMP_DIR="$(mktemp -d)"
-
-    # Cleanup temporary files on exit
     trap 'rm -rf "$REVERSAL_TMP_DIR"' EXIT
 
-    # Clone repository
     git clone --depth 1 "$REVERSAL_REPO" "$REVERSAL_TMP_DIR/Reversal"
-
-    # Install purple variant
     bash "$REVERSAL_TMP_DIR/Reversal/install.sh" -t purple
+fi
 
-    # Apply icon theme to GNOME
+if [[ "$(gsettings get org.gnome.desktop.interface icon-theme)" != "'$REVERSAL_THEME_NAME'" ]]; then
     gsettings set org.gnome.desktop.interface icon-theme "$REVERSAL_THEME_NAME"
-
-    echo "Reversal Purple Icon Theme installed!"
+    echo "Reversal Purple activated!"
+else
+    echo "Reversal Purple is already active. Skipping..."
 fi
 
 ####### Setup Terminal Font #######
 
-gsettings set org.gnome.Console use-system-font false
-gsettings set org.gnome.Console custom-font "JetBrains Mono 11"
+if [[ "$(gsettings get org.gnome.Console custom-font)" == "'JetBrains Mono 11'" ]] && \
+   [[ "$(gsettings get org.gnome.Console use-system-font)" == "false" ]]; then
+    echo "Terminal font is already configured. Skipping..."
+else
+    gsettings set org.gnome.Console use-system-font false
+    gsettings set org.gnome.Console custom-font "JetBrains Mono 11"
+fi
+
+####### Setup GNOME Accent Color #######
+
+if [[ "$(gsettings get org.gnome.desktop.interface accent-color)" == "'purple'" ]]; then
+    echo "Purple accent color is already active. Skipping..."
+else
+    gsettings set org.gnome.desktop.interface accent-color 'purple'
+    echo "Purple accent color applied!"
+fi
