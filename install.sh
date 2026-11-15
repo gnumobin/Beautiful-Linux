@@ -9,6 +9,7 @@ packages=(
     fastfetch
     ttf-nerd-fonts-symbols
     git
+    ttf-jetbrains-mono
 )
 # Script Route
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
@@ -69,3 +70,8 @@ bash "$REVERSAL_TMP_DIR/Reversal/install.sh" -t purple
 gsettings set org.gnome.desktop.interface icon-theme "$REVERSAL_THEME_NAME"
 
 echo "Reversal Purple Icon Theme installed!"
+
+####### Setup Terminal Font #######
+
+gsettings set org.gnome.Console use-system-font false
+gsettings set org.gnome.Console custom-font "JetBrains Mono 11"
