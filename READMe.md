@@ -1,13 +1,13 @@
-# 💜 GNOME Customization
+# 💜 Beautiful Linux
 
-A minimal GNOME customization setup for Arch Linux and its derivatives.
+A minimal desktop customization setup for **GNOME on Arch Linux and its derivatives**.
 
 ### ✨ Features
 
 - 🚦 **GTK4 Traffic Lights** – macOS-inspired close, minimize, and maximize buttons.
-- 🧚 **Custom Fastfetch** – Heavily customized Fastfetch configuration featuring pink Frieren ASCII art and colorful Nerd Font icons.
-- 💜 **Reversal Purple** – Automatically installs and applies the purple variant of Reversal Icon Theme.
-
+- 🧚 **Custom Fastfetch** – Heavily customized layout with pink Frieren ASCII art and colorful Nerd Font icons.
+- 💜 **Reversal Purple** – Automatically installs and applies the purple icon theme.
+- 🔤 **JetBrains Mono** – Sets KGX Terminal's font to JetBrains Mono at size 11.
 
 ### 📦 Requirements
 
@@ -19,8 +19,8 @@ A minimal GNOME customization setup for Arch Linux and its derivatives.
 ### 🚀 Installation
 
 ```bash
-git clone https://github.com/USERNAME/REPOSITORY.git
-cd REPOSITORY
+git clone https://github.com/gnumobin/Beautiful-Linux.git
+cd Beautiful-Linux
 chmod +x install.sh
 ./install.sh
 ```
@@ -32,13 +32,14 @@ chmod +x install.sh
 ├── install.sh
 ├── fastfetch/
 ├── gtk4-theme/
-└── README.md
+└── READMe.md
 ```
 
 ### ⚠️ Notes
 
 - Currently supports Arch Linux and its derivatives only.
 - GTK4 customization only changes application window controls.
+- Designed for GNOME and KGX Terminal.
 - Existing configuration files may be overwritten.
 
 ---
