@@ -1,0 +1,17 @@
+[/]
+animate-appicon-hover-animation-extent={'RIPPLE': 4, 'PLANK': 4, 'SIMPLE': 1}
+dot-position='BOTTOM'
+extension-version=74
+hotkeys-overlay-combo='TEMPORARILY'
+panel-anchors='{"SEC-0x00000000":"MIDDLE"}'
+panel-element-positions='{"SEC-0x00000000":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"activitiesButton","visible":true,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":false,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"centerMonitor"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":false,"position":"stackedBR"}]}'
+panel-lengths='{}'
+panel-positions='{"SEC-0x00000000":"TOP"}'
+panel-sizes='{"SEC-0x00000000":26}'
+prefs-opened=false
+scroll-panel-action='NOTHING'
+stockgs-keep-dash=true
+trans-panel-opacity=0.35000000000000003
+trans-use-custom-bg=true
+trans-use-custom-opacity=true
+window-preview-title-position='TOP'

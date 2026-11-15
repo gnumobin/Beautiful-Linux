@@ -7,10 +7,11 @@ trap 'echo -e "\nInstallation cancelled by user!"; exit 130' INT
 # packages
 packages=(
     # fastfetch
-    # ttf-nerd-fonts-symbols
     # git
     # fish
-    ttf-jetbrains-mono
+    # gnome-shell-extension-dash-to-panel
+    # ttf-jetbrains-mono
+    ttf-nerd-fonts-symbols
 )
 # Script Route
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
@@ -125,3 +126,16 @@ else
     fish -c "omf install krisleech && omf theme krisleech"
     echo "Krisleech theme activated!"
 fi
+
+####### Dash To Panel #######
+####### Dash To Panel #######
+
+EXTENSION_UUID="dash-to-panel@jderose9.github.com"
+
+if [[ "$(gnome-extensions info "$EXTENSION_UUID" | grep 'State:' | xargs)" == "State: ACTIVE" ]]; then
+    echo "Dash to Panel is already active. Skipping..."
+else
+    gnome-extensions enable "$EXTENSION_UUID"
+fi
+
+dconf load /org/gnome/shell/extensions/dash-to-panel/ < "$SCRIPT_DIR/dash-to-panel/dash-to-panel.dconf"
