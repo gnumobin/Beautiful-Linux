@@ -6,9 +6,9 @@ trap 'echo -e "\nInstallation cancelled by user!"; exit 130' INT
 
 # packages
 packages=(
-    fastfetch
-    ttf-nerd-fonts-symbols
-    git
+    # fastfetch
+    # ttf-nerd-fonts-symbols
+    # git
     ttf-jetbrains-mono
 )
 # Script Route
@@ -50,26 +50,33 @@ fi
 cp -r "$GTK4_THEME_SOURCE_DIR/." "$GTK4_THEME_CONFIG_DIR"
 echo "GTK4 Theme installed!"
 
-####### Install Reversal Icon Theme #######
 
-echo "Installing Reversal Icon Theme..."
+if [[ "$(gsettings get org.gnome.desktop.interface icon-theme)" == "'$REVERSAL_THEME_NAME'" ]]; then
+    echo "Reversal Purple is already active. Skipping..."
+else
+    echo "Installing Reversal Icon Theme..."
+    # Download and installation commands
+    ####### Install Reversal Icon Theme #######
 
-# Create temporary directory
-REVERSAL_TMP_DIR="$(mktemp -d)"
+    echo "Installing Reversal Icon Theme..."
 
-# Cleanup temporary files on exit
-trap 'rm -rf "$REVERSAL_TMP_DIR"' EXIT
+    # Create temporary directory
+    REVERSAL_TMP_DIR="$(mktemp -d)"
 
-# Clone repository
-git clone --depth 1 "$REVERSAL_REPO" "$REVERSAL_TMP_DIR/Reversal"
+    # Cleanup temporary files on exit
+    trap 'rm -rf "$REVERSAL_TMP_DIR"' EXIT
 
-# Install purple variant
-bash "$REVERSAL_TMP_DIR/Reversal/install.sh" -t purple
+    # Clone repository
+    git clone --depth 1 "$REVERSAL_REPO" "$REVERSAL_TMP_DIR/Reversal"
 
-# Apply icon theme to GNOME
-gsettings set org.gnome.desktop.interface icon-theme "$REVERSAL_THEME_NAME"
+    # Install purple variant
+    bash "$REVERSAL_TMP_DIR/Reversal/install.sh" -t purple
 
-echo "Reversal Purple Icon Theme installed!"
+    # Apply icon theme to GNOME
+    gsettings set org.gnome.desktop.interface icon-theme "$REVERSAL_THEME_NAME"
+
+    echo "Reversal Purple Icon Theme installed!"
+fi
 
 ####### Setup Terminal Font #######
 
